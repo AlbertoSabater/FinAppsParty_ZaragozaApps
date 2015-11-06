@@ -37,7 +37,7 @@ public class PHPtest extends AsyncTask<String,Void,String> {
 
         //means by Post Method
         try{
-            String link="http://192.168.10.36/phpdocs/hello.php";
+            String link="http://192.168.10.36/prueba";
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
