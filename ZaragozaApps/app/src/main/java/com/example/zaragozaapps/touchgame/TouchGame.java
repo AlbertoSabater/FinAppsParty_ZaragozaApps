@@ -21,7 +21,9 @@ public class TouchGame extends Activity {
 
     private int touchs = 0;
     private int totalTouchs = 0;
+    private int height = 0;
     private Context context;
+    private String id;
 
     private static TextView tvTouchs;
 
@@ -32,9 +34,12 @@ public class TouchGame extends Activity {
 
         context = getApplicationContext();
 
+        Bundle extras = getIntent().getExtras();
+        id = extras.getString("id");
+
         tvTouchs = (TextView) findViewById(R.id.tvTouchs);
         Log.e("TOUCH GAME", "started");
-        new BackgroundWinner(this).execute();
+        //new BackgroundWinner(this).execute();
 
         LinearLayout screen = (LinearLayout) findViewById(R.id.screemTouch);
         screen.setOnClickListener(new View.OnClickListener() {
@@ -47,12 +52,13 @@ public class TouchGame extends Activity {
 
                     if (touchs == 20) {    // Send to pi
                         Log.e("TOUCH GAME", "100 touchs");
-                        new SendTouchs(context).execute();
+                        height ++;
+                        new SendTouchs(context).execute(id, String.valueOf(height));
                         touchs = 0;
                     }
 
                     tvTouchs.setText(String.valueOf(totalTouchs));
-                    Log.e("TOUCH GAME", "new touch" + totalTouchs);
+                    //Log.e("TOUCH GAME", "new touch" + totalTouchs);
                 }
             }
         });

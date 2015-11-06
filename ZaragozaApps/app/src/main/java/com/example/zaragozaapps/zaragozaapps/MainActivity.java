@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.zaragozaapps.touchgame.InitTouchGame;
 import com.example.zaragozaapps.touchgame.TouchGame;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, TouchGame.class);
+        Intent intent = new Intent(this, InitTouchGame.class);
         startActivity(intent);
         //new PHPtest(this).execute();
     }

@@ -27,6 +27,15 @@
                 android:value="com.example.zaragozaapps.touchgame.TouchGame" />
         </activity>
 
+        <activity
+            android:name="com.example.zaragozaapps.touchgame.InitTouchGame"
+            android:label="@string/touch_game"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Touch Game"
+                android:value="com.example.zaragozaapps.touchgame.InitTouchGame" />
+        </activity>
+
     </application>
 
 </manifest>
