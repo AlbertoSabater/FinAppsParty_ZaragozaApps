@@ -27,6 +27,10 @@ import java.net.URLConnection;
  */
 public class BackgroundWinner extends AsyncTask<String,Void,String> {
 
+    /**
+     * Waits for the end of the game, and notufy the players
+     */
+
     private Context context;
     private String id;
 

@@ -21,7 +21,7 @@ import com.example.zaragozaapps.zaragozaapps.R;
 public class TouchGame extends Activity {
 
     /**
-     * Pricipal TouchGame screen
+     * Prinipal scrii
      */
 
     private int touchs = 0;

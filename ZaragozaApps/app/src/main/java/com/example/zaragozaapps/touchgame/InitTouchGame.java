@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.example.zaragozaapps.zaragozaapps.R;
 /**
  * Created by alber on 06/11/2015.
  */
-public class InitTouchGame extends Activity{
+public class InitTouchGame extends AppCompatActivity {
 
     /**
      * Shows the screen with one button for each future player
@@ -54,9 +55,6 @@ public class InitTouchGame extends Activity{
         btPlayer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProgressDialog dialog = new ProgressDialog(InitTouchGame.this);
-                dialog.setMessage("Waiting for players...");
-                dialog.show();
 
                 new BackGroundInitTouchGame(context).execute("1");
             }

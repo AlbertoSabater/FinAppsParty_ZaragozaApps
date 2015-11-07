@@ -36,6 +36,15 @@
                 android:value="com.example.zaragozaapps.touchgame.InitTouchGame" />
         </activity>
 
+        <activity
+            android:name="com.example.zaragozaapps.zaragozaapps.SetUserName"
+            android:label="@string/name_user"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Set user name"
+                android:value="com.example.zaragozaapps.zaragozaapps.SetUserName" />
+        </activity>
+
     </application>
 
 </manifest>
