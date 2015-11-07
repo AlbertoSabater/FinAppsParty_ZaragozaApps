@@ -46,6 +46,15 @@
         </activity>
 
         <activity
+            android:name="com.example.zaragozaapps.zaragozaapps.Info"
+            android:label="@string/info"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Information"
+                android:value="com.example.zaragozaapps.zaragozaapps.Info" />
+        </activity>
+
+        <activity
             android:name="com.example.zaragozaapps.zaragozaapps.Ranking"
             android:label="@string/ranking"
             android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
@@ -54,10 +63,43 @@
                 android:value="com.example.zaragozaapps.zaragozaapps.Ranking" />
         </activity>
 
-        <activity android:name="com.example.zaragozaapps.plusplusgame.PlusPlusActivity"/>
-        <activity android:name="com.example.zaragozaapps.plusplusgame.PlusPlusInitActivity"/>
-        <activity android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsActivity"/>
-        <activity android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsInitActivity"/>
+        <activity
+            android:name="com.example.zaragozaapps.plusplusgame.PlusPlusActivity"
+            android:label="@string/plusplus"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Maths brain"
+                android:value="com.example.zaragozaapps.plusplusgame.PlusPlusActivity" />
+        </activity>
+
+        <activity
+            android:name="com.example.zaragozaapps.plusplusgame.PlusPlusInitActivity"
+            android:label="@string/plusplus"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Maths brain"
+                android:value="com.example.zaragozaapps.plusplusgame.PlusPlusInitActivity" />
+        </activity>
+
+        <activity
+            android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsActivity"
+            android:label="@string/matchPairs"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Match pairs"
+                android:value="com.example.zaragozaapps.matchpaisgame.MatchPairsActivity" />
+        </activity>
+
+        <activity
+            android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsInitActivity"
+            android:label="@string/matchPairs"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Match pairs"
+                android:value="com.example.zaragozaapps.matchpaisgame.MatchPairsInitActivity" />
+        </activity>
+
+
 
     </application>
 

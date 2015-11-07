@@ -50,7 +50,7 @@ public class BackGroundInitTouchGame extends AsyncTask<String,Void,String> {
         String result = null;
         id = arg0[0];
         try {
-            String link = "http://192.168.10.36:8081/touchgameInit";
+            String link = "http://192.168.10.36:8081/Init";
 
             URL url = new URL(link);
             URLConnection conn = url.openConnection();

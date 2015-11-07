@@ -2,10 +2,13 @@
     <string name="app_name">ZaragozaApps</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Info</string>
+    <string name="plusplus">Maths brain</string>
+    <string name="matchPairs">Maths pairs</string>
     <string name="touch_game">Touch Game</string>
     <string name="name_user">Set user name</string>
     <string name="ranking">Best users</string>
+    <string name="info">Information</string>
 
     <string-array name="drawer_options">
         <item>View Ranking</item>

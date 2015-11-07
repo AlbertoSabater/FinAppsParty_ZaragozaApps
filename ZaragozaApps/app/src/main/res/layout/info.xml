@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@android:style/Theme.Black"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" GNU GENERAL PUBLIC LICENSE"
+        android:id="@+id/license"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:text="Version 3, 29 June 2007"
+        android:id="@+id/licenseVersion"
+        android:layout_gravity="center_vertical"
+        android:textColor="#000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AUTHORS:"
+        android:id="@+id/authors"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alberto Sabater Bailon"
+        android:id="@+id/alberto"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hector Anadon Leon"
+        android:id="@+id/hector"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sergio Lazaro Magdalena"
+        android:id="@+id/sergio"
+        android:layout_weight="0.04"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GITHUB REPOSITORIE:"
+        android:id="@+id/github"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="https://github.com/asabater94/FinAppsParty_ZaragozaApps"
+        android:id="@+id/gitHubLink"
+        android:layout_weight="0.03"
+        android:textColor="#000"/>
+
+</LinearLayout>

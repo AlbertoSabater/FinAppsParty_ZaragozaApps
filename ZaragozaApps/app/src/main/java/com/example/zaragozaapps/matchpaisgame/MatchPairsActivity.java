@@ -3,9 +3,11 @@ package com.example.zaragozaapps.matchpaisgame;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zaragozaapps.zaragozaapps.R;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by sergiolazaromagdalena on 7/11/15.
  */
-public class MatchPairsActivity extends Activity implements View.OnClickListener{
+public class MatchPairsActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button[][] array = new Button[4][4];
 
@@ -23,6 +25,8 @@ public class MatchPairsActivity extends Activity implements View.OnClickListener
     private Button buttonB1,buttonB2,buttonB3,buttonB4;
     private Button buttonC1,buttonC2,buttonC3,buttonC4;
     private Button buttonD1,buttonD2,buttonD3,buttonD4;
+    private TextView numtries;
+    private int tries;
 
     private String id;
 
@@ -36,8 +40,6 @@ public class MatchPairsActivity extends Activity implements View.OnClickListener
 
         settingButtons();
         setListener();
-
-
 
     }
 
@@ -95,56 +97,54 @@ public class MatchPairsActivity extends Activity implements View.OnClickListener
         Toast toast;
         switch(v.getId()){
             case R.id.buttonA1:
-                toast = Toast.makeText(this,"Pulsado A1",Toast.LENGTH_SHORT);
-                toast.show();
+                new MatchPairsSendButton(this).execute(id,"2","2");
                 break;
             case R.id.buttonA2:
-                toast = Toast.makeText(this,"Pulsado A2",Toast.LENGTH_SHORT);
-                toast.show();
+                new MatchPairsSendButton(this).execute(id,"3","2");
                 break;
             case R.id.buttonA3:
-
+                new MatchPairsSendButton(this).execute(id,"4","2");
                 break;
             case R.id.buttonA4:
-
+                new MatchPairsSendButton(this).execute(id,"5","2");
                 break;
             case R.id.buttonB1:
-
+                new MatchPairsSendButton(this).execute(id,"2","3");
                 break;
             case R.id.buttonB2:
-
+                new MatchPairsSendButton(this).execute(id,"3","3");
                 break;
             case R.id.buttonB3:
-
+                new MatchPairsSendButton(this).execute(id,"4","3");
                 break;
             case R.id.buttonB4:
-
+                new MatchPairsSendButton(this).execute(id,"5","3");
                 break;
             case R.id.buttonC1:
-
+                new MatchPairsSendButton(this).execute(id,"2","4");
                 break;
             case R.id.buttonC2:
-
+                new MatchPairsSendButton(this).execute(id,"3","4");
                 break;
             case R.id.buttonC3:
-
+                new MatchPairsSendButton(this).execute(id,"4","4");
                 break;
             case R.id.buttonC4:
-
+                new MatchPairsSendButton(this).execute(id,"5","4");
                 break;
             case R.id.buttonD1:
-
+                new MatchPairsSendButton(this).execute(id,"2","5");
                 break;
             case R.id.buttonD2:
-
+                new MatchPairsSendButton(this).execute(id,"3","5");
                 break;
             case R.id.buttonD3:
-
+                new MatchPairsSendButton(this).execute(id,"4","5");
                 break;
             case R.id.buttonD4:
-
+                new MatchPairsSendButton(this).execute(id,"5","5");
                 break;
         }
-        Toast.makeText(this,"Pushed: " + v.getId(),Toast.LENGTH_SHORT);
+
     }
 }

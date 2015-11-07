@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.zaragozaapps.matchpaisgame.MatchPairsInitActivity;
+import com.example.zaragozaapps.plusplusgame.PlusPlusInitActivity;
 import com.example.zaragozaapps.touchgame.InitTouchGame;
 import com.example.zaragozaapps.touchgame.TouchGame;
 
@@ -62,10 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.game2:
-
+                Intent i2 = new Intent(getApplicationContext(), PlusPlusInitActivity.class);
+                startActivity(i2);
                 break;
             case R.id.game3:
-
+                Intent i3 = new Intent(getApplicationContext(), MatchPairsInitActivity.class);
+                startActivity(i3);
                 break;
         }
     }
@@ -130,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent i = new Intent(getApplicationContext(), Info.class);
+            startActivity(i);
             return true;
         }
 

@@ -4,9 +4,11 @@ package com.example.zaragozaapps.matchpaisgame;
  * Created by sergiolazaromagdalena on 6/11/15.
  */
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +20,7 @@ import com.example.zaragozaapps.zaragozaapps.R;
 /**
  * Created by alber on 06/11/2015.
  */
-public class MatchPairsInitActivity extends Activity{
+public class MatchPairsInitActivity extends AppCompatActivity {
 
     private Button btPlayer1;
     private Button btPlayer2;
@@ -38,21 +40,22 @@ public class MatchPairsInitActivity extends Activity{
         btPlayer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context.getApplicationContext(), MatchPairsActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.putExtra("id", "0");
-                getApplicationContext().startActivity(i);
+                ProgressDialog dialog = new ProgressDialog(MatchPairsInitActivity.this);
+                dialog.setMessage("Waiting for players...");
+                dialog.show();
+
+                new BackGroundInitMatchPairsGame(context).execute("0");
             }
         });
 
         btPlayer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context.getApplicationContext(), MatchPairsActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.putExtra("id", "1");
-                getApplicationContext().startActivity(i);
+                ProgressDialog dialog = new ProgressDialog(MatchPairsInitActivity.this);
+                dialog.setMessage("Waiting for players...");
+                dialog.show();
 
+                new BackGroundInitMatchPairsGame(context).execute("1");
             }
         });
 

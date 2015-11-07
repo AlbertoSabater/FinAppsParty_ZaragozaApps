@@ -24,7 +24,8 @@
             android:text="New Text"
             android:id="@+id/tvWelcome"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:paddingBottom="15dp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -35,13 +36,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Parejas"
+            android:text="Maths brain"
             android:id="@+id/game2"
             android:layout_gravity="center_horizontal" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Juego 3"
+            android:text="Match pairs"
             android:id="@+id/game3"
             android:layout_gravity="center_horizontal" />
 

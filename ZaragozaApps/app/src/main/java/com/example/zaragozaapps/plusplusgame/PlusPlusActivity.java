@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.method.DigitsKeyListener;
 import android.view.View;
 import android.widget.Button;
@@ -18,14 +19,14 @@ import java.util.Random;
 /**
  * Created by sergiolazaromagdalena on 6/11/15.
  */
-public class PlusPlusActivity extends Activity {
+public class PlusPlusActivity extends AppCompatActivity {
 
     private static final String[] operations = {"+","-","*","/",};
     private static final int maxNumberPlusMinus = 30;
     private static final int maxNumberPlusMinus2 = 10;
     private static final int maxNumberMultiDiv = 10;
     private static final int maxNumberMultiDiv2 = 10;
-    private static final int numOperations = 3;
+    private static final int numOperations = 4;
     private String currentOperation = "";
     private int number1;
     private int number2;
