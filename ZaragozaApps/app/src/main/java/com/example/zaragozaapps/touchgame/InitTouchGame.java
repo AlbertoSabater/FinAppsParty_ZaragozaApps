@@ -45,10 +45,6 @@ public class InitTouchGame extends AppCompatActivity {
                 dialog.show();
 
                 new BackGroundInitTouchGame(context).execute("0");
-                /*Intent i = new Intent(context.getApplicationContext(), TouchGame.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.putExtra("id", "0");
-                getApplicationContext().startActivity(i);*/
             }
         });
 

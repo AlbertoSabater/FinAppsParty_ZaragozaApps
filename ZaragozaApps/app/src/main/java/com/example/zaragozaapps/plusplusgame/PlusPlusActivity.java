@@ -2,6 +2,8 @@ package com.example.zaragozaapps.plusplusgame;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.zaragozaapps.zaragozaapps.MainActivity;
 import com.example.zaragozaapps.zaragozaapps.R;
 
 import java.util.Random;
@@ -37,12 +40,13 @@ public class PlusPlusActivity extends AppCompatActivity {
     private Button confirmButton;
     private EditText insertedResult;
     private String id;
-
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.plus_plus);
+        context = getApplicationContext();
 
         Bundle extras = getIntent().getExtras();
         id = extras.getString("id");
@@ -107,7 +111,8 @@ public class PlusPlusActivity extends AppCompatActivity {
                         dialogButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                dialog.dismiss();
+                                Intent i = new Intent(context, MainActivity.class);
+                                startActivity(i);
                             }
                         });
                         dialog.show();
