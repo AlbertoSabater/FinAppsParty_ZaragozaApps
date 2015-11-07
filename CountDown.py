@@ -4,7 +4,7 @@ import time
 from sense_hat import SenseHat
 
 sense = SenseHat()
-sense.clear() 
+sense.clear()
 
-for i in reversed(range(30)):
+for i in reversed(range(20)):
 	sense.show_message(str(i),text_colour=[255,0,0])

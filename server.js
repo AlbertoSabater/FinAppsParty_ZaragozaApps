@@ -15,10 +15,13 @@ var positions = [[2,2],[3,2],[4,2],[5,2],[2,3],[3,3],[4,3],[5,3],
 var colorResults = [];
 var color = [[0,0,255],[255, 0, 0],[255,255,0],
     [0,255,0],[0,128,0],[255,0,255],[0,255,255],[255,69,0]];
+var done = false;
+
 
 var httpServer = http.createServer( function (request, response) {
 	var body = '';
-    request.on('data', function(chunk) {
+
+    request.on('data', function(chunk) { 
         body += chunk;
     });
     request.on('end', function() {
@@ -158,6 +161,10 @@ var httpServer = http.createServer( function (request, response) {
                     idMax = 2;
                 }
                 console.log("idMax: " + idMax + " max: " + max);
+                var exec = require('child_process').exec;
+                exec('python plusplus.py ' + idMax, function callback(error, stdout, stderr){
+                    // result
+                });
                 jugadores = [];
             }
             simpleResponse(200, defaultResponseHeaders, "Eres el mejor!");
