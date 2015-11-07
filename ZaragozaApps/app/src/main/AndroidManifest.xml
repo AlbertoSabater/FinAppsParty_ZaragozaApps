@@ -54,6 +54,11 @@
                 android:value="com.example.zaragozaapps.zaragozaapps.Ranking" />
         </activity>
 
+        <activity android:name="com.example.zaragozaapps.plusplusgame.PlusPlusActivity"/>
+        <activity android:name="com.example.zaragozaapps.plusplusgame.PlusPlusInitActivity"/>
+        <activity android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsActivity"/>
+        <activity android:name="com.example.zaragozaapps.matchpaisgame.MatchPairsInitActivity"/>
+
     </application>
 
 </manifest>
