@@ -152,9 +152,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawerLayout.closeDrawer(mDrawerList);
 
         switch (position) {
+            case 0:
+                Log.e("RANKING", "starting");
+                Intent i2 = new Intent(getApplicationContext(), Ranking.class);
+                startActivity(i2);
+                break;
             case 1:
                 Intent i = new Intent(getApplicationContext(), SetUserName.class);
                 startActivity(i);
+                break;
         }
     }
 

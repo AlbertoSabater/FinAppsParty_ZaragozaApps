@@ -45,6 +45,15 @@
                 android:value="com.example.zaragozaapps.zaragozaapps.SetUserName" />
         </activity>
 
+        <activity
+            android:name="com.example.zaragozaapps.zaragozaapps.Ranking"
+            android:label="@string/ranking"
+            android:parentActivityName="com.example.zaragozaapps.zaragozaapps.MainActivity" >
+            <meta-data
+                android:name="Best players"
+                android:value="com.example.zaragozaapps.zaragozaapps.Ranking" />
+        </activity>
+
     </application>
 
 </manifest>

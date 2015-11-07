@@ -9,13 +9,16 @@
         android:layout_height="wrap_content"
         android:text="Insert your new user name"
         android:id="@+id/t"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="20dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/etUserName"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:paddingLeft="15dp" />
 
     <Button
         android:layout_width="wrap_content"

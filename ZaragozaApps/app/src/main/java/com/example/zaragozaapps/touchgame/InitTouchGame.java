@@ -55,6 +55,9 @@ public class InitTouchGame extends AppCompatActivity {
         btPlayer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressDialog dialog = new ProgressDialog(InitTouchGame.this);
+                dialog.setMessage("Waiting for players...");
+                dialog.show();
 
                 new BackGroundInitTouchGame(context).execute("1");
             }
