@@ -1,6 +1,7 @@
 package com.example.zaragozaapps.touchgame;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ import com.example.zaragozaapps.zaragozaapps.R;
  * Created by alber on 06/11/2015.
  */
 public class InitTouchGame extends Activity{
+
+    /**
+     * Shows the screen with one button for each future player
+     */
 
     private Button btPlayer1;
     private Button btPlayer2;
@@ -34,18 +39,26 @@ public class InitTouchGame extends Activity{
         btPlayer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //new BackGroundInitTouchGame(context).execute("1");
-                Intent i = new Intent(context.getApplicationContext(), TouchGame.class);
+                ProgressDialog dialog = new ProgressDialog(InitTouchGame.this);
+                dialog.setMessage("Waiting for players...");
+                dialog.show();
+
+                new BackGroundInitTouchGame(context).execute("0");
+                /*Intent i = new Intent(context.getApplicationContext(), TouchGame.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.putExtra("id", "0");
-                getApplicationContext().startActivity(i);
+                getApplicationContext().startActivity(i);*/
             }
         });
 
         btPlayer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //new BackGroundInitTouchGame(context).execute("2");
+                ProgressDialog dialog = new ProgressDialog(InitTouchGame.this);
+                dialog.setMessage("Waiting for players...");
+                dialog.show();
+
+                new BackGroundInitTouchGame(context).execute("1");
             }
         });
 

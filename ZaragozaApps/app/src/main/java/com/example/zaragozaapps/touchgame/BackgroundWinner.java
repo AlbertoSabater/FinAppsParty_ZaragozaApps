@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.example.zaragozaapps.zaragozaapps.MainActivity;
 import com.example.zaragozaapps.zaragozaapps.R;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -26,6 +28,7 @@ import java.net.URLConnection;
 public class BackgroundWinner extends AsyncTask<String,Void,String> {
 
     private Context context;
+    private String id;
 
     private boolean end = false;
 
@@ -42,9 +45,11 @@ public class BackgroundWinner extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... arg0) {
 
         String result = null;
+        id = arg0[0];
+
         while (!end) {
             try {
-                String link = "http://192.168.10.36/phpdocs/hello.php";
+                String link = "http://192.168.10.36:8081/won";
 
                 URL url = new URL(link);
                 URLConnection conn = url.openConnection();
@@ -52,8 +57,12 @@ public class BackgroundWinner extends AsyncTask<String,Void,String> {
                 conn.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 
-                wr.write("");
+                JSONObject json = new JSONObject();
+                json.put("id", id);
+
+                wr.write(json.toString());
                 wr.flush();
+                wr.close();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
@@ -67,10 +76,15 @@ public class BackgroundWinner extends AsyncTask<String,Void,String> {
                 }
 
                 result = sb.toString();
+                Log.e("TOUCH GAME", result);
 
                 if (!result.equalsIgnoreCase("wait") && result != null) {
                     end = true;
                 }
+
+                reader.close();
+                Thread.sleep(1000);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -89,10 +103,19 @@ public class BackgroundWinner extends AsyncTask<String,Void,String> {
         // custom dialog
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialogendofgame);
+        dialog.setCanceledOnTouchOutside(false);
 
         // set the custom dialog components - text, image and button
         TextView text = (TextView) dialog.findViewById(R.id.tvGameResult);
-        text.setText(result);
+        Log.e("TOUCH GAME", "result" + result);
+
+        if(result.equalsIgnoreCase(id)) {
+            text.setText("You win!!!");
+        }
+        else {
+            text.setText("You lose.");
+        }
+
 
         Button dialogButton = (Button) dialog.findViewById(R.id.btGameResult);
         // if button is clicked, close the custom dialog

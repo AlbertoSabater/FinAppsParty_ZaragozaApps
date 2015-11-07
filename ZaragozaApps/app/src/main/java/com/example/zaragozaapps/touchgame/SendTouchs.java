@@ -38,6 +38,10 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class SendTouchs extends AsyncTask<String,Void,String> {
 
+    /**
+     * Send post with new touchs
+     */
+
     private Context context;
     private String id;
     private String height;
@@ -59,41 +63,8 @@ public class SendTouchs extends AsyncTask<String,Void,String> {
         id = arg0[0];
         height = arg0[1];
 
-            /*try {
-                String link = "http://192.168.10.36:8080/json";
-
-                URL url = new URL(link);
-                URLConnection conn = url.openConnection();
-
-                conn.setDoOutput(true);
-                OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-
-                String data = URLEncoder.encode("json", "UTF-8") + "=" + URLEncoder.encode("{id:" + id + ", height:" + height + "}", "UTF-8");
-                wr.write(data);
-                wr.flush();
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                StringBuilder sb = new StringBuilder();
-                String line = null;
-
-                // Read Server Response
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                    break;
-                }
-
-                String result = sb.toString();
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new String("Exception: " + e.getMessage());
-            }*/
-
-
         try {
-            URL url = new URL("http://192.168.10.36:8080");
+            URL url = new URL("http://192.168.10.36:8081/touchgame");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(10000);
@@ -119,10 +90,10 @@ public class SendTouchs extends AsyncTask<String,Void,String> {
             writer.close();
             os.close();
 
-            Log.e("TOUCH GAME", "Sending post");
             //conn.connect();
             int responseCode=conn.getResponseCode();
-            Log.e("TOUCH GAME", "Post done " + responseCode);
+
+            os.close();
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

@@ -1,8 +1,12 @@
 package com.example.zaragozaapps.touchgame;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +19,12 @@ import java.net.URLConnection;
  */
 public class WaitForStartTouchGame extends AsyncTask<String,Void,String> {
 
+    /**
+     * The player is waiting for others players. When eveerybody it's ready,
+     * the game will start
+     */
     private Context context;
+    private ProgressDialog dialog;
 
     private boolean end = false;
     private String id;
@@ -31,13 +40,14 @@ public class WaitForStartTouchGame extends AsyncTask<String,Void,String> {
 
     @Override
     protected String doInBackground(String... arg0) {
+        Log.e("TOUCH GAME", "WaitForStartTouchGame");
 
         String result = null;
         id = arg0[0];
         boolean begin = false;
         while (!begin) {
             try {
-                String link = "http://192.168.10.36/phpdocs/hello.php";
+                String link = "http://192.168.10.36:8081/touchgameWaitPlayers";
 
                 URL url = new URL(link);
                 URLConnection conn = url.openConnection();
@@ -45,7 +55,10 @@ public class WaitForStartTouchGame extends AsyncTask<String,Void,String> {
                 conn.setDoOutput(true);
                 OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 
-                wr.write("");
+                JSONObject json = new JSONObject();
+                json.put("id", id);
+
+                wr.write(json.toString());
                 wr.flush();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -60,8 +73,9 @@ public class WaitForStartTouchGame extends AsyncTask<String,Void,String> {
                 }
 
                 result = sb.toString();
+                Log.e("TOUCH GAME", result);
 
-                if (result.equalsIgnoreCase("OK")) {
+                if (result.equalsIgnoreCase("start")) {
                     begin = true;
                 }
 
@@ -78,6 +92,7 @@ public class WaitForStartTouchGame extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
         Intent i = new Intent(context.getApplicationContext(), TouchGame.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.putExtra("id", id);
         context.startActivity(i);
     }
